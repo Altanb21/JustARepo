@@ -1,0 +1,96 @@
+const BottomBar = () => (
+  <div>
+      <div className='content-list'>
+
+      <Box
+  sx={{
+    bgcolor: 'background.paper',
+    boxShadow: 1,
+    borderRadius: 2,
+    p: 4,
+    minWidth: 1150,
+  }}
+>
+  <Box sx={{ color: 'text.main' }}>Sessions</Box>
+  <Box sx={{ color: 'text.primary', display: 'inline', fontSize: 34, fontWeight: 'medium' }}>
+    98.3 K
+  </Box>
+  <Box sx={{ width: 300 }}>
+      <Slider
+        aria-label="Temperature"
+        defaultValue={30}
+        getAriaValueText={valuetext}
+        valueLabelDisplay="auto"
+        step={10}
+        marks
+        min={10}
+        max={110}
+        size="medium"
+        color='secondary'
+      />
+
+    </Box>
+
+
+  <Box
+    sx={{ color: 'success.dark', fontSize: 16, verticalAlign: 'sub' }}
+  />
+  <Box
+    sx={{
+      color: 'success.dark',
+      display: 'inline',
+      fontWeight: 'medium',
+      mx: 0.5,
+    }}
+  >
+        <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'column',
+        '& > :not(style)': { m: 1 },
+      }}
+    >
+              <TextField
+          id="standard-number"
+          label="Price"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+        
+
+              <TextField
+          id="standard-number"
+          label="Amount"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+              <TextField
+          id="standard-number"
+          label="Total"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+
+    </Box>
+
+    Total Balance :
+  </Box>
+  <Box sx={{ color: 'text.secondary', display: 'inline', fontSize: 12 }}>
+    0,00000000 BNB
+  </Box>
+</Box>
+      </div>
+
+    
+
+  </div>
+);
