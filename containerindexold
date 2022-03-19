@@ -1,0 +1,201 @@
+import TopNavigation from '../TopNavigation';
+import { BsPlusCircleFill } from 'react-icons/bs';
+// import { useState } from 'react';
+import './styles.css';
+import { Slider } from '@material-ui/core'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+import { makeStyles } from "@material-ui/core/styles";
+import { XGrid, GridToolbar } from "@material-ui/x-grid";
+import { Affix } from 'rsuite';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+import TradingViewWidget from 'react-tradingview-widget';
+
+
+const ContentContainer = () => {
+  return (
+    <div className='content-container'>
+      <TopNavigation />
+      <div className='content-list'>
+     <TradingViewWidget
+    symbol="binance:btcusdt"
+    interval= "1D"
+    theme="dark"
+    locale="TR"
+    autosize
+  />
+            </div>
+      <BottomBar />
+    </div>
+  );
+};
+
+function valuetext(value) {
+  return `${value}TRY`;
+}
+
+const marks = [
+  {
+    value: 0,
+    label: '0 ',
+  },
+  {
+    value: 20,
+    label: '20 ',
+  },
+  {
+    value: 37,
+    label: '37 ',
+  },
+  {
+    value: 100,
+    label: '100 ',
+  },
+];
+
+
+const BottomBar = () => (
+  <div>
+      <div className='content-list'>
+
+      <Box
+  sx={{
+    bgcolor: '#777799',
+    boxShadow: 1,
+    borderRadius: 2,
+    p: 4,
+    minWidth: 1150,
+  }}
+>
+  <Box sx={{ color: 'text.main' }}>Buy/Sell</Box>
+  <Box sx={{ color: 'text.primary', display: 'inline', fontSize: 34, fontWeight: 'medium' }}>
+    BTC : 42276
+  </Box>
+  <Box sx={{ width: 300 }}>
+      <Slider
+        aria-label="Temperature"
+        defaultValue={30}
+        getAriaValueText={valuetext}
+        valueLabelDisplay="auto"
+        step={10}
+        marks
+        min={10}
+        max={110}
+        size="medium"
+        color='wrapper'
+      />
+
+    </Box>
+
+
+  <Box
+    sx={{ color: 'success.dark', fontSize: 16, verticalAlign: 'sub' }}
+  />
+  <Box
+    sx={{
+      color: 'success.dark',
+      display: 'inline',
+      fontWeight: 'medium',
+      mx: 0.5,
+    }}
+  >
+        <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'column',
+        '& > :not(style)': { m: 1 },
+      }}
+    >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <TextField
+          id="standard-number"
+          label="Price"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+        
+
+              <TextField
+          id="standard-number"
+          label="Amount"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+              <TextField
+          id="standard-number"
+          label="Total"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+    </Box>
+    <div>
+    Current BTC Price : 42276 </div>
+  </Box>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <button class="glow-on-hover" type="button">Buy&nbsp;&nbsp;&nbsp; </button>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="glow-on-hover" type="button">Sell</button>
+<div>
+    Total Balance : 0,00000000 BNB
+    </div>
+  <Box sx={{ color: 'text.secondary', display: 'inline', fontSize: 12 }}>
+  </Box>
+</Box>
+      </div>
+
+    
+
+  </div>
+);
+
+const Post = ({ name, timestamp, text }) => {
+
+  const seed = Math.round(Math.random() * 100);
+  return (
+    <div className={'post'}>
+      <div className='avatar-wrapper'>
+        <img src={`https://avatars.dicebear.com/api/open-peeps/${seed}.svg`} alt='' className='avatar' />
+      </div>
+
+      <div className='post-content'>
+        <p className='post-owner'>
+          {name}
+          <small className='timestamp'>{timestamp}</small>
+        </p>
+        <p className='post-text'>{text}</p>
+      </div>
+    </div>
+  );
+};
+
+const PlusIcon = () => (
+  <BsPlusCircleFill
+    size='22'
+    className='text-green-500 dark:shadow-lg mx-2 dark:text-primary'
+  />
+);
+
+export default ContentContainer;
