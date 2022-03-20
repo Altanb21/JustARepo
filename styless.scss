@@ -1,0 +1,89 @@
+$buyColor: orange;
+$sellColor: green;
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;  
+  padding: 10px;
+  width: 450px;
+  margin: 0 auto;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(124deg, #10ff24, #10ff24, #10ff24, #0059ff, #10ff24, #00f1fd, #1100ff, #311933, #00ffff);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: rainbow 10s ease infinite;
+  -z-animation: rainbow 10s ease infinite;
+  -o-animation: rainbow 10s ease infinite;
+    animation: rainbow 2s ease infinite;}
+  
+  @-webkit-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-moz-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-o-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    button {
+      width: 50%;
+      padding:  10px;
+      border: none;
+      cursor: pointer;
+      &.buy {
+        background-color: $buyColor;
+      }
+      &.label {
+        background-color: $buyColor;
+      }
+      &.sell {
+        background-color: $sellColor;
+      }
+    }
+  }
+  .item-list {
+    &:not(:last-child) {
+      border-bottom: 1px dashed #FFF;;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+    animation: fadeIn 500ms ease-in;
+    &.buy {
+      color: $buyColor;
+    }
+    &.sell {
+      color: $sellColor;
+    }
+  }
